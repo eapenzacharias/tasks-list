@@ -1,6 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import TodoItem from './TodoItem';
 
 const TodosList = (props) => {
@@ -17,6 +16,20 @@ const TodosList = (props) => {
       ))}
     </ul>
   );
+};
+
+TodosList.defaultProps = {
+  todos: [{ id: '0', title: '', completed: false }],
+};
+
+TodosList.propTypes = {
+  todos: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string,
+    title: PropTypes.string,
+    completed: PropTypes.bool,
+  })),
+  handleChangeProps: PropTypes.func.isRequired,
+  deleteTodoProps: PropTypes.func.isRequired,
 };
 
 export default TodosList;

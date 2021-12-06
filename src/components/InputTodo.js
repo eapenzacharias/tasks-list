@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { FaPlusCircle } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 
 const InputTodo = (props) => {
   const [state, setState] = useState({
@@ -26,6 +26,7 @@ const InputTodo = (props) => {
         title: '',
       });
     } else {
+      // eslint-disable-next-line no-alert
       alert('Please write item');
     }
   };
@@ -44,6 +45,10 @@ const InputTodo = (props) => {
       </button>
     </form>
   );
+};
+
+InputTodo.propTypes = {
+  addTodoItem: PropTypes.func.isRequired,
 };
 
 export default InputTodo;

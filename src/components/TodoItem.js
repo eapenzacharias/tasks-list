@@ -1,7 +1,6 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import { FaTrash } from 'react-icons/fa';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const TodoItem = (props) => {
   const {
@@ -30,6 +29,20 @@ const TodoItem = (props) => {
       </button>
     </li>
   );
+};
+
+TodoItem.defaultProps = {
+  todo: { id: 0, title: '', completed: false },
+};
+
+TodoItem.propTypes = {
+  todo: PropTypes.shape({
+    id: PropTypes.string,
+    title: PropTypes.string,
+    completed: PropTypes.bool,
+  }),
+  handleChangeProps: PropTypes.func.isRequired,
+  deleteTodoProps: PropTypes.func.isRequired,
 };
 
 export default TodoItem;

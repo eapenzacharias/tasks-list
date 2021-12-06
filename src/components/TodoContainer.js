@@ -5,15 +5,6 @@ import Header from './Header';
 import InputTodo from './InputTodo';
 
 const TodoContainer = () => {
-  // eslint-disable-next-line no-unused-vars
-  const getInitialTodos = () => {
-    // getting stored items
-    const temp = localStorage.getItem('todos');
-    const savedTodos = JSON.parse(temp);
-    console.log(savedTodos);
-    return (savedTodos || []);
-  };
-
   const [state, setState] = useState({
     todos: [],
   });
