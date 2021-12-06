@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './styles/style.scss';
 
 const element = <h1>React app setup</h1>;
 
