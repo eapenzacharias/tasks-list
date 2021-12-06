@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import TodosList from './TodosList';
-// import PropTypes from 'prop-types';
+import Header from './Header';
 
 const TodoContainer = () => {
   // eslint-disable-next-line no-unused-vars
@@ -24,11 +24,20 @@ const TodoContainer = () => {
     ],
   });
 
+  const handleChange = (id) => {
+    const objIndex = state.todos.findIndex((obj) => obj.id === id);
+    const updatedTodo = state.todos;
+    updatedTodo[objIndex].completed = !state.todos[objIndex].completed;
+    setState({
+      todos: updatedTodo,
+    });
+  };
+
   return (
     <>
-      <h1>To-Do List</h1>
+      <Header />
       <ul>
-        <TodosList todos={state.todos} />
+        <TodosList todos={state.todos} handleChangeProps={handleChange} />
       </ul>
     </>
   );
