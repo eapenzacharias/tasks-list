@@ -1,27 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import TodosList from './TodosList';
 import Header from './Header';
+import InputTodo from './InputTodo';
 
 const TodoContainer = () => {
   // eslint-disable-next-line no-unused-vars
+  const getInitialTodos = () => {
+    // getting stored items
+    const temp = localStorage.getItem('todos');
+    const savedTodos = JSON.parse(temp);
+    console.log(savedTodos);
+    return (savedTodos || []);
+  };
+
   const [state, setState] = useState({
-    todos: [
-      {
-        id: 1,
-        title: 'Setup development environment',
-        completed: true,
-      },
-      {
-        id: 2,
-        title: 'Develop website and add content',
-        completed: false,
-      },
-      {
-        id: 3,
-        title: 'Deploy to live server',
-        completed: false,
-      },
-    ],
+    todos: [],
   });
 
   const handleChange = (id) => {
@@ -46,17 +40,42 @@ const TodoContainer = () => {
     });
   };
 
+  const addTodoItem = (title) => {
+    const newTodo = {
+      id: uuidv4(),
+      title,
+      completed: false,
+    };
+    setState({
+      todos: [...state.todos, newTodo],
+    });
+  };
+
+  useEffect(() => {
+    const temp = localStorage.getItem('todos');
+    const loadedTodos = { todos: JSON.parse(temp) };
+    if (loadedTodos) {
+      setState(loadedTodos);
+    }
+  }, [setState]);
+
+  useEffect(() => {
+    const temp = JSON.stringify(state.todos);
+    localStorage.setItem('todos', temp);
+  }, [state.todos]);
+
   return (
-    <>
-      <Header />
-      <ul>
+    <div className="container">
+      <div className="inner">
+        <Header />
+        <InputTodo addTodoItem={addTodoItem} />
         <TodosList
           todos={state.todos}
           handleChangeProps={handleChange}
           deleteTodoProps={delTodo}
         />
-      </ul>
-    </>
+      </div>
+    </div>
   );
 };
 
