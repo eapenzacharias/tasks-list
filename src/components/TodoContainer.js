@@ -25,11 +25,24 @@ const TodoContainer = () => {
   });
 
   const handleChange = (id) => {
-    const objIndex = state.todos.findIndex((obj) => obj.id === id);
-    const updatedTodo = state.todos;
-    updatedTodo[objIndex].completed = !state.todos[objIndex].completed;
+    setState((prevState) => ({
+      todos: prevState.todos.map((todo) => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            completed: !todo.completed,
+          };
+        }
+        return todo;
+      }),
+    }));
+  };
+
+  const delTodo = (id) => {
     setState({
-      todos: updatedTodo,
+      todos: [
+        ...state.todos.filter((todo) => todo.id !== id),
+      ],
     });
   };
 
@@ -37,7 +50,11 @@ const TodoContainer = () => {
     <>
       <Header />
       <ul>
-        <TodosList todos={state.todos} handleChangeProps={handleChange} />
+        <TodosList
+          todos={state.todos}
+          handleChangeProps={handleChange}
+          deleteTodoProps={delTodo}
+        />
       </ul>
     </>
   );

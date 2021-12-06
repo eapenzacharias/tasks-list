@@ -6,6 +6,7 @@ const TodoItem = (props) => {
   const {
     todo,
     handleChangeProps,
+    deleteTodoProps,
   } = props;
   return (
     <li>
@@ -15,6 +16,9 @@ const TodoItem = (props) => {
         onChange={() => handleChangeProps(todo.id)}
       />
       {todo.title}
+      <button type="button" onClick={() => deleteTodoProps(todo.id)}>
+        Delete
+      </button>
     </li>
   );
 };
