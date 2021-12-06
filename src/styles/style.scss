@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+
   body {
     font-family: "Segoe UI", Arial, sans-serif;
     line-height: 1.4;
@@ -16,6 +17,7 @@
       align-items: center;
       max-width: 600px;
       margin: 0 auto;
+
       h1 {
         font-size: 6rem;
         font-weight: 600;
@@ -25,9 +27,11 @@
         text-transform: lowercase;
         text-align: center;
       }
+
       .inner {
         width: 100%;
         padding: 8rem 10px 4rem;
+
         .form-container {
           width: 100%;
           margin-bottom: 20px;
@@ -35,6 +39,7 @@
           border-radius: calc(0.5 * 100px);
           box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.38);
           justify-content: space-evenly;
+
           input {
             font-size: 1rem;
             font-weight: 400;
@@ -55,6 +60,7 @@
             cursor: pointer;
             font-weight: 600;
             margin-right: 10px;
+
             svg {
               color: darkcyan;
               font-size: 20px;
@@ -69,14 +75,17 @@
             border: none;
           }
         }
+
         .item {
           font-size: 1.2rem;
           list-style-type: none;
-          padding: 17px 0px;
+          padding: 17px 0;
           border-bottom: 1px solid #eaeaea;
+
           span {
             word-wrap: break-word;
           }
+
           input {
             margin-right: 15px;
           }
