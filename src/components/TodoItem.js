@@ -25,7 +25,7 @@ const TodoItem = (props) => {
         {todo.title}
       </span>
       <button type="button" onClick={() => deleteTodoProps(todo.id)}>
-        <FaTrash style={{ color: 'orangered', fontSize: '16px' }} />
+        <FaTrash style={{ color: 'orangered', fontSize: '12px' }} />
       </button>
     </li>
   );

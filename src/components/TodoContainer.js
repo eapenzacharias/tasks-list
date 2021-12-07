@@ -49,16 +49,14 @@ const TodoContainer = () => {
 
   const Home = () => (
     <>
-      <div className="container">
-        <div className="inner">
-          <Header />
-          <InputTodo addTodoItem={addTodoItem} />
-          <TodosList
-            todos={state.todos}
-            handleChangeProps={handleChange}
-            deleteTodoProps={delTodo}
-          />
-        </div>
+      <div className="inner">
+        <Header />
+        <InputTodo addTodoItem={addTodoItem} />
+        <TodosList
+          todos={state.todos}
+          handleChangeProps={handleChange}
+          deleteTodoProps={delTodo}
+        />
       </div>
     </>
   );
@@ -78,11 +76,14 @@ const TodoContainer = () => {
 
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="*" element={<NotMatch />} />
-      </Routes>
+      <Navbar />
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about/*" element={<About />} />
+          <Route path="*" element={<NotMatch />} />
+        </Routes>
+      </div>
     </>
   );
 };
