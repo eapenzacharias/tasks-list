@@ -2,7 +2,6 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 const About = () => {
-  // eslint-disable-next-line no-unused-vars
   const aboutData = [
     {
       slug: 'app',
@@ -42,7 +41,6 @@ const About = () => {
 
   const page = (slug) => {
     const aboutContent = aboutData.find((item) => item.slug === slug);
-    console.log(aboutContent);
     const { title, description } = aboutContent;
     return (
       <>
