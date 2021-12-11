@@ -2,18 +2,17 @@
 # Task List
 
 > Simple ToDo app on REACT
+![image](https://user-images.githubusercontent.com/49812651/145092016-150968a8-25d4-415e-8a83-afddf22faa47.png)
 
 Build a To-Do User Interface & functionality on REACT framework
 
-
-
-### [Live Project](#)
+### [Live Project](https://eapenzacharias.github.io/tasks-list/#/)
 
 ## Built With
 
 - JavaScript, HTML, SCSS
 - [REACT](https://reactjs.org/)
-- [Bootstrap](ttps://getbootstrap.com/)
+- [Bootstrap](https://getbootstrap.com/)
 
 
 ## Getting Started
