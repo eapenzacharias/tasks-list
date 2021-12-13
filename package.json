@@ -2,7 +2,7 @@
   "name": "tasks-list",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://eapenzacharias.github.io/tasks-list",
+  "homepage": "https://todo-taskz.netlify.app",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^11.2.7",
